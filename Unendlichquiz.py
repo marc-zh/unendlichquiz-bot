@@ -3,7 +3,7 @@ from PIL import Image, ImageEnhance, ImageOps
 from paddleocr import PaddleOCR
 import requests
 
-API_KEY = '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'
+API_KEY = 'dein_groq_key'
 
 # Screenshot eines bestimmten Bereichs erstellen (Koordinaten und Größe definieren)
 def take_screenshot(x, y, width, height, save_path='screenshot.png'):
@@ -98,3 +98,4 @@ if __name__ == "__main__":
         search_in_groq_ai(extracted_text)
     else:
         print("Kein Text erkannt.")
+

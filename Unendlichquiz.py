@@ -5,7 +5,7 @@ import requests
 
 API_KEY = 'dein_groq_key'
 
-# Screenshot eines bestimmten Bereichs erstellen (Koordinaten und Größe definieren)
+# Screenshot eines bestimmten Bereichs erstellen (Koordinaten und Grösse definieren)
 def take_screenshot(x, y, width, height, save_path='screenshot.png'):
     # Screenshot erstellen
     screenshot = pyautogui.screenshot(region=(x, y, width, height))
@@ -15,7 +15,7 @@ def take_screenshot(x, y, width, height, save_path='screenshot.png'):
 
 # Text aus dem Screenshot extrahieren mit PaddleOCR (deutsche Sprache)
 def extract_text_from_image(image_path):
-    # Bild in Schwarz-Weiß konvertieren und Farben umkehren
+    # Bild in Schwarz-Weiss konvertieren und Farben umkehren
     convert_image_to_grayscale_and_invert(image_path)
 
     # PaddleOCR Leser initialisieren (mit deutscher Sprache)
@@ -30,16 +30,16 @@ def extract_text_from_image(image_path):
     print(f"Extrahierter Text: {extracted_text}")
     return extracted_text
 
-# Bild in Schwarz-Weiß konvertieren und Farben umkehren
+# Bild in Schwarz-Weiss konvertieren und Farben umkehren
 def convert_image_to_grayscale_and_invert(image_path):
     tolerance = 190
     # Bild öffnen
     image = Image.open(image_path)
 
-    # In Schwarz-Weiß umwandeln
+    # In Schwarz-Weiss umwandeln
     grayscale_image = image.convert('L')
 
-    # Toleranzschwellenwert definieren: alles über dem Toleranzwert wird weiß
+    # Toleranzschwellenwert definieren: alles über dem Toleranzwert wird weiss
     binary_image = grayscale_image.point(lambda p: 255 if p >= tolerance else 0)
 
     # Farben invertieren
@@ -78,7 +78,7 @@ def search_in_groq_ai(query):
 
 # Hauptprogramm
 if __name__ == "__main__":
-    # Definiere die Position und Größe des Bereichs, den du scannen möchtest
+    # Definiere die Position und Grösse des Bereichs, den du scannen möchtest
     x = 2400  # x-Position des Screenshots
     y = 400  # y-Position des Screenshots
     width = 950  # Breite des Screenshot-Bereichs
@@ -98,4 +98,5 @@ if __name__ == "__main__":
         search_in_groq_ai(extracted_text)
     else:
         print("Kein Text erkannt.")
+
 
